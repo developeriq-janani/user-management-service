@@ -48,7 +48,7 @@ jobs:
 
       - name: Build Docker Image GCR
         run: |-
-          docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:$TAG" .
+          docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:prod" .
 
       - name: Publish Docker Image to GCR
         run: |-
