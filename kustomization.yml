@@ -1,13 +1,19 @@
-# Specifies the Kubernetes API version being used for Kustomize configuration (v1beta1 in this case).
 apiVersion: kustomize.config.k8s.io/v1beta1
-
-# Indicates that this YAML defines a Kustomization.
 kind: Kustomization
 
-# Lists the resources (YAML files) that Kustomize should manage and apply customization to.
 resources:
-  # Refers to a YAML file defining a Kubernetes Service.
   - service.yml
-
-  # Refers to a YAML file defining a Kubernetes Deployment.
   - deployment.yml
+## Specifies the Kubernetes API version being used for Kustomize configuration (v1beta1 in this case).
+#apiVersion: kustomize.config.k8s.io/v1beta1
+#
+## Indicates that this YAML defines a Kustomization.
+#kind: Kustomization
+#
+## Lists the resources (YAML files) that Kustomize should manage and apply customization to.
+#resources:
+#  # Refers to a YAML file defining a Kubernetes Service.
+#  - service.yml
+#
+#  # Refers to a YAML file defining a Kubernetes Deployment.
+#  - deployment.yml
