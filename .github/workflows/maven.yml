@@ -7,6 +7,7 @@ on:
     branches: [ master ]
 
 env:
+ # PROJECT_ID: ${{secrets.GKE_PROJECT}}
   PROJECT_ID: ${{secrets.GKE_PROJECT}}
   SI_CLUSTER: cc-course-work-cluster
   SI_ZONE: us-central1-c
@@ -48,7 +49,7 @@ jobs:
 
       - name: Build Docker Image GCR
         run: |-
-          docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:prod" .
+          docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:$TAG" .
 
       - name: Publish Docker Image to GCR
         run: |-
