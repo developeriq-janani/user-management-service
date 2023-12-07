@@ -47,8 +47,7 @@ jobs:
         run: gcloud container clusters get-credentials "$SI_CLUSTER" --zone "$SI_ZONE"
 
       - name: Build Docker Image GCR
-        run: |-
-          docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:$TAG" .
+        run: docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:$TAG" .
 
       - name: Publish Docker Image to GCR
         run: |-
