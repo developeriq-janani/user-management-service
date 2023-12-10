@@ -5,37 +5,8 @@ metadata:
 spec:
   selector:
     app: user-management-service
+  type: NodePort
   ports:
     - protocol: TCP
       port: 80
       targetPort: 8080
-## Specifies the Kubernetes API version being used (v1 in this case).
-#apiVersion: v1
-#
-## Indicates that this YAML defines a Kubernetes Service.
-#kind: Service
-#
-## Contains metadata for the Service, including its name.
-#metadata:
-#  # Sets the name of the Service to "user-management-service".
-#  name: user-management-service
-#
-## Describes the desired state of the Service.
-#spec:
-#  # Specifies a label selector to determine which Pods this Service should target.
-#  selector:
-#    # This selector targets Pods with the label "app" set to "user-management-service".
-#    app: user-management-service
-#
-#  # Specifies the ports that the Service will expose.
-#  ports:
-#    # Indicates the start of a list of port definitions.
-#    -
-#      # Specifies that the protocol is TCP.
-#      protocol: TCP
-#
-#      # Sets the port on which the Service will be accessible externally (on the Service itself).
-#      port: 80
-#
-#      # Specifies the target port on the Pods that the Service will forward traffic to.
-#      targetPort: 8080

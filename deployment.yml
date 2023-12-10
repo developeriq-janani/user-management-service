@@ -1,60 +1,41 @@
-# Specifies the Kubernetes API version for Deployment (apps/v1 in this case).
 apiVersion: apps/v1
-
-# Indicates that this YAML defines a Deployment.
 kind: Deployment
-
-# Contains metadata for the Deployment, including its name and labels.
 metadata:
-  # Sets the name of the Deployment to "user-management-service".
   name: user-management-service
-
-  # Adds labels to the Deployment.
   labels:
-    # Adds a label "app" with the value "user-management-service".
     app: user-management-service
-
-# Describes the desired state of the Deployment.
 spec:
-  # Specifies the desired number of replicas (instances) of the application.
   replicas: 1
-
-  # Defines a selector to match the labels of Pods controlled by this Deployment.
   selector:
     matchLabels:
-      # Matches Pods with the label "app" set to "user-management-service".
       app: user-management-service
-
-  # Defines the template for Pods created by this Deployment.
   template:
     metadata:
       labels:
-        # Sets the label "app" to "user-management-service" for Pods.
         app: user-management-service
-
-    # Specifies the pod specification.
     spec:
-      # Defines the containers within the Pod.
       containers:
         - name: user-management-service
-          # Specifies the container image to use.
           image: gcr.io/PROJECT_ID/IMAGE:TAG  # Replace with your Docker Hub image and tag
-
-          # Specifies the image pull policy (Always, IfNotPresent, Never).
           imagePullPolicy: Always
-
-          # Specifies the ports that the container listens on.
           ports:
             - containerPort: 8080
-
-          # Specifies resource requirements and limits for the container.
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /api/v1/user-management-service/actuator/health
+            initialDelaySeconds: 40
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: /api/v1/user-management-service/actuator/health
+            initialDelaySeconds: 40
+            periodSeconds: 10
           resources:
-            # Specifies the requested amount of CPU and memory for the container.
             requests:
-              cpu: "50m"
-              memory: "80Mi"
-
-            # Specifies the maximum amount of CPU and memory that the container can use.
+              cpu: "300m"
+              memory: "400Mi"
             limits:
               cpu: "500m"
               memory: "512Mi"
