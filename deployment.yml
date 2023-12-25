@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: user-management-service
-          image: gcr.io/PROJECT_ID/IMAGE:TAG  # Replace with your Docker Hub image and tag
+          image: gcr.io/PROJECT_ID/IMAGE:TAG  # Replace with your Docker Hub image and tag#
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
