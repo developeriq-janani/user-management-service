@@ -18,7 +18,7 @@ public class GitHubUser {
     @Id
     private String id;
 
-    private String login;
+    private String userName;
 
     private int gitHubId;
 

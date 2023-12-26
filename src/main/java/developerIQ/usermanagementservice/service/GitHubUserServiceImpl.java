@@ -43,7 +43,7 @@ public class GitHubUserServiceImpl implements GitHubUserService {
     private GitHubUser generateGitHubUserObject(GitHubUserDto githubUserDto) {
         return GitHubUser.builder()
                 .gitHubId(githubUserDto.getId())
-                .login(githubUserDto.getLogin())
+                .userName(githubUserDto.getUserName())
                 .contributions(githubUserDto.getContributions())
                 .type(githubUserDto.getType())
                 .siteAdmin(githubUserDto.isSiteAdmin())

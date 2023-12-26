@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class GitHubUserDto {
 
     @JsonProperty("login")
-    private String login;
+    private String userName;
 
     @JsonProperty("id")
     private int id;
