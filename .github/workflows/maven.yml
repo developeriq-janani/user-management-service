@@ -29,8 +29,8 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Build with Maven
-        run: mvn clean install -DskipTests
+      - name: Build Maven with test
+        run: mvn clean install
 
       - name: Setup Google Cloud CLI
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@0.1.3
